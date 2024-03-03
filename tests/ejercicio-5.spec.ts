@@ -4,7 +4,6 @@ import { EmailService, ShortMessageService, Notifier, NotificationService } from
 
 describe("Notifier tests", () => {
     it("Sends notification by email", () => {
-        // Arrange
         const emailServiceMock: NotificationService = {
             notify: (message: string) => {
                 expect(message).to.equal('Hello World!');
@@ -14,15 +13,11 @@ describe("Notifier tests", () => {
 
         const notifier = new Notifier(emailServiceMock);
 
-        // Act
         notifier.sendNotification('Hello World!');
 
-        // Assert
-        // We're using a mock service, so no assertion is needed here
     });
 
     it("Sends notification by SMS", () => {
-        // Arrange
         const smsServiceMock: NotificationService = {
             notify: (message: string) => {
                 expect(message).to.equal('Hello World!');
@@ -32,10 +27,7 @@ describe("Notifier tests", () => {
 
         const notifier = new Notifier(smsServiceMock);
 
-        // Act
         notifier.sendNotification('Hello World!');
 
-        // Assert
-        // We're using a mock service, so no assertion is needed here
     });
 });
